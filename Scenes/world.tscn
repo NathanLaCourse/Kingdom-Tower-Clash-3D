@@ -1,0 +1,368 @@
+[gd_scene format=3 uid="uid://rx4rskigek2n"]
+
+[ext_resource type="PackedScene" uid="uid://cq1828lny555h" path="res://Scenes/level.tscn" id="1_a02cp"]
+[ext_resource type="Script" uid="uid://c8t4ed2ghuhqp" path="res://Scripts/world.gd" id="1_go701"]
+[ext_resource type="PackedScene" uid="uid://o4t87oxcg4rq" path="res://Scenes/gem.tscn" id="2_5ukr8"]
+[ext_resource type="PackedScene" uid="uid://b5s633kunqrb3" path="res://Scenes/unit.tscn" id="3_5a7ea"]
+[ext_resource type="Texture2D" uid="uid://ddeesec2om5r1" path="res://Assets/Card.svg" id="4_8j60k"]
+[ext_resource type="PackedScene" uid="uid://8o3d6gneqvjh" path="res://Scenes/card.tscn" id="5_5ukr8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5a7ea"]
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+roughness = 0.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_8j60k"]
+material = SubResource("StandardMaterial3D_5a7ea")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ukr8"]
+transparency = 1
+albedo_color = Color(0, 0.5666666, 1, 0.48235294)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o06y3"]
+material = SubResource("StandardMaterial3D_5ukr8")
+size = Vector3(22, 1.1, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7acu"]
+transparency = 1
+albedo_color = Color(0, 0.5666666, 1, 0.48235294)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5v1tr"]
+material = SubResource("StandardMaterial3D_k7acu")
+size = Vector3(12, 1.1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo5ed"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.48235294)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ukr8"]
+material = SubResource("StandardMaterial3D_fo5ed")
+size = Vector3(22, 1.1, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fo5ed"]
+material = SubResource("StandardMaterial3D_fo5ed")
+size = Vector3(12, 1.1, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5a7ea"]
+bg_color = Color(0.2, 0.030900002, 0.022000004, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j60k"]
+bg_color = Color(0.6, 0.32999998, 0.24, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o06y3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7acu"]
+bg_color = Color(0.8901961, 0.43137255, 0.27450982, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikia7"]
+bg_color = Color(0.89, 0.55625, 0.445, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fo5ed"]
+bg_color = Color(0.1195, 0.2, 0.062000003, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v1tr"]
+bg_color = Color(0.30666667, 0.4, 0.24000001, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fj1v"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ukr8"]
+bg_color = Color(0.32941177, 0.54901963, 0.16862746, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yui6"]
+bg_color = Color(0.50166667, 0.7, 0.35, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8j60k"]
+radius = 1.0
+
+[node name="World" type="Node3D" unique_id=397767097 node_paths=PackedStringArray("level", "cursor", "camera", "cameraJoint", "raycast", "unplaceable", "towers", "gems", "gemsBlueLabel", "gemsRedLabel", "Ui", "soupBar", "soupBarInt", "soupBarFull", "goopBar", "goopBarInt", "goopBarFull", "cardSprites", "UiCursor")]
+script = ExtResource("1_go701")
+level = NodePath("Level")
+cursor = NodePath("Cursor")
+camera = NodePath("CameraJoint/CameraNode/Camera3D")
+cameraJoint = NodePath("CameraJoint")
+raycast = NodePath("CameraJoint/CameraNode/RayCast3D")
+unplaceable = NodePath("Unplaceable")
+towers = [NodePath("KingBlue"), NodePath("PrincessLeftBlue"), NodePath("PrincessRightBlue"), NodePath("KingRed"), NodePath("PrincessLeftRed"), NodePath("PrincessRightRed")]
+gems = NodePath("Gems")
+gemsBlueLabel = NodePath("UI/GemsBlueLabel")
+gemsRedLabel = NodePath("UI/GemsRedLabel")
+gemScene = ExtResource("2_5ukr8")
+Ui = NodePath("UI")
+soupBar = NodePath("UI/SoupBar")
+soupBarInt = NodePath("UI/SoupBarInt")
+soupBarFull = NodePath("UI/SoupBarFull")
+goopBar = NodePath("UI/GoopBar")
+goopBarInt = NodePath("UI/GoopBarInt")
+goopBarFull = NodePath("UI/GoopBarFull")
+cardSprites = [NodePath("UI/Card0"), NodePath("UI/Card1"), NodePath("UI/Card2"), NodePath("UI/Card3"), NodePath("UI/Card4")]
+UiCursor = NodePath("UI/UiCursor")
+unitScene = ExtResource("3_5a7ea")
+
+[node name="Level" parent="." unique_id=236818093 instance=ExtResource("1_a02cp")]
+
+[node name="Cursor" type="MeshInstance3D" parent="." unique_id=458722525]
+mesh = SubResource("TorusMesh_8j60k")
+
+[node name="CameraJoint" type="Node3D" parent="." unique_id=1783092240]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="CameraNode" type="Node3D" parent="CameraJoint" unique_id=511465937]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.70710653, 0.7071067, 0, -0.7071066, 0.70710677, 0, 4, 11)
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraJoint/CameraNode" unique_id=449502172]
+target_position = Vector3(0, 0, -100)
+
+[node name="Camera3D" type="Camera3D" parent="CameraJoint/CameraNode" unique_id=1836690598]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 1.7881393e-07, 0, 0, 1.0000001, 0, -1.4142141, 1.4142132)
+fov = 70.0
+size = 33.968
+
+[node name="Unplaceable" type="Node3D" parent="." unique_id=87032312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
+
+[node name="CenterBlue" type="MeshInstance3D" parent="Unplaceable" unique_id=1994207662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+mesh = SubResource("BoxMesh_o06y3")
+
+[node name="LeftBlue" type="MeshInstance3D" parent="Unplaceable" unique_id=924007009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1.5)
+mesh = SubResource("BoxMesh_5v1tr")
+
+[node name="RightBlue" type="MeshInstance3D" parent="Unplaceable" unique_id=1215371422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1.5)
+mesh = SubResource("BoxMesh_5v1tr")
+
+[node name="CenterRed" type="MeshInstance3D" parent="Unplaceable" unique_id=1986631919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+mesh = SubResource("BoxMesh_5ukr8")
+
+[node name="LeftRed" type="MeshInstance3D" parent="Unplaceable" unique_id=2014700065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1.5)
+mesh = SubResource("BoxMesh_fo5ed")
+
+[node name="RightRed" type="MeshInstance3D" parent="Unplaceable" unique_id=112540392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1.5)
+mesh = SubResource("BoxMesh_fo5ed")
+
+[node name="UI" type="Node2D" parent="." unique_id=550349091]
+
+[node name="SoupBar" type="ProgressBar" parent="UI" unique_id=435216996]
+offset_left = -150.0
+offset_top = 276.0
+offset_right = 150.0
+offset_bottom = 296.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5a7ea")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8j60k")
+max_value = 10.0
+value = 5.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="SoupBarInt" type="ProgressBar" parent="UI" unique_id=996665634]
+offset_left = -150.0
+offset_top = 276.0
+offset_right = 150.0
+offset_bottom = 296.0
+theme_override_styles/background = SubResource("StyleBoxFlat_o06y3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k7acu")
+max_value = 10.0
+value = 3.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="SoupBarFull" type="ProgressBar" parent="UI" unique_id=21558856]
+visible = false
+offset_left = -150.0
+offset_top = 276.0
+offset_right = 150.0
+offset_bottom = 296.0
+theme_override_styles/background = SubResource("StyleBoxFlat_o06y3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ikia7")
+max_value = 10.0
+show_percentage = false
+indeterminate = true
+editor_preview_indeterminate = true
+
+[node name="GoopBar" type="ProgressBar" parent="UI" unique_id=151688488]
+offset_left = -150.0
+offset_top = 296.0
+offset_right = 150.0
+offset_bottom = 316.0
+theme_override_styles/background = SubResource("StyleBoxFlat_fo5ed")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5v1tr")
+max_value = 10.0
+value = 5.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="GoopBarInt" type="ProgressBar" parent="UI" unique_id=343909600]
+offset_left = -150.0
+offset_top = 296.0
+offset_right = 150.0
+offset_bottom = 316.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0fj1v")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5ukr8")
+max_value = 10.0
+value = 2.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="GoopBarFull" type="ProgressBar" parent="UI" unique_id=1829131113]
+visible = false
+offset_left = -150.0
+offset_top = 296.0
+offset_right = 150.0
+offset_bottom = 316.0
+theme_override_styles/background = SubResource("StyleBoxFlat_o06y3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7yui6")
+max_value = 10.0
+show_percentage = false
+indeterminate = true
+editor_preview_indeterminate = true
+
+[node name="UiCursor" type="Area2D" parent="UI" unique_id=1332969737]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/UiCursor" unique_id=351489103]
+shape = SubResource("CircleShape2D_8j60k")
+
+[node name="NextLabel" type="Label" parent="UI" unique_id=1908799801]
+offset_left = -196.0
+offset_top = 201.0
+offset_right = -154.0
+offset_bottom = 224.0
+text = "Next:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Card0" type="Sprite2D" parent="UI" unique_id=1517913694]
+position = Vector2(-174.99994, 249.00003)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_8j60k")
+
+[node name="Card1" parent="UI" unique_id=1122508158 instance=ExtResource("5_5ukr8")]
+position = Vector2(-116.19995, 230.80002)
+
+[node name="Card2" parent="UI" unique_id=632722729 instance=ExtResource("5_5ukr8")]
+position = Vector2(-39.19995, 230.80002)
+
+[node name="Card3" parent="UI" unique_id=268458902 instance=ExtResource("5_5ukr8")]
+position = Vector2(37.80005, 230.80002)
+
+[node name="Card4" parent="UI" unique_id=416828463 instance=ExtResource("5_5ukr8")]
+position = Vector2(114.80005, 230.80002)
+
+[node name="GemsBlueBox" type="Sprite2D" parent="UI" unique_id=341012979]
+self_modulate = Color(1, 1, 1, 0.47058824)
+position = Vector2(349.34998, -0.1499939)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_8j60k")
+
+[node name="GemsRedSprite" type="Sprite2D" parent="UI" unique_id=937424049]
+self_modulate = Color(1, 1, 1, 0.47058824)
+position = Vector2(349.34998, -100.149994)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_8j60k")
+
+[node name="GemsBlueLabel" type="Label" parent="UI" unique_id=1852306834]
+offset_left = 324.34998
+offset_top = -26.0
+offset_right = 374.34998
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0.5666666, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.1832788, 0.18327883, 0.1832788, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GemsRedLabel" type="Label" parent="UI" unique_id=1537217717]
+offset_left = 324.34998
+offset_top = -126.0
+offset_right = 374.34998
+offset_bottom = -76.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.1832788, 0.18327883, 0.1832788, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="KingBlue" parent="." unique_id=1919569524 instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+unitType = "KingTower"
+hideClock = true
+
+[node name="PrincessLeftBlue" parent="." unique_id=952472056 instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 8)
+unitId = 1
+unitType = "PrincessTower"
+hideClock = true
+
+[node name="PrincessRightBlue" parent="." unique_id=540050670 instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 8)
+unitId = 2
+unitType = "PrincessTower"
+hideClock = true
+
+[node name="KingRed" parent="." unique_id=1103275453 instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+unitId = 3
+unitType = "KingTower"
+unitOwner = 1
+hideClock = true
+
+[node name="PrincessLeftRed" parent="." unique_id=1927713546 instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -8)
+unitId = 4
+unitType = "PrincessTower"
+unitOwner = 1
+hideClock = true
+
+[node name="PrincessRightRed" parent="." unique_id=1644296806 instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)
+unitId = 5
+unitType = "PrincessTower"
+unitOwner = 1
+hideClock = true
+
+[node name="Gems" type="Node3D" parent="." unique_id=1201504232]

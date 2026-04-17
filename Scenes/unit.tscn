@@ -1,0 +1,382 @@
+[gd_scene format=3 uid="uid://b5s633kunqrb3"]
+
+[ext_resource type="Script" uid="uid://x85o5ug53vie" path="res://Scripts/unit.gd" id="1_yjw0f"]
+[ext_resource type="Texture2D" uid="uid://bwfqd0oxylwlf" path="res://Assets/Rounded Square.svg" id="2_3rt3l"]
+[ext_resource type="Texture2D" uid="uid://btwo14x57k5ot" path="res://Assets/Clock.svg" id="2_c86kq"]
+[ext_resource type="Texture2D" uid="uid://ophn3vtlg718" path="res://Assets/Over.svg" id="3_lpvrq"]
+[ext_resource type="Texture2D" uid="uid://chalaun4bre2a" path="res://Assets/Hand.svg" id="4_lpvrq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rt3l"]
+resource_local_to_scene = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3rt3l"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_3rt3l")
+radius = 0.25
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tb11o"]
+resource_local_to_scene = true
+radius = 0.25
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3rt3l"]
+resource_local_to_scene = true
+radius = 0.25
+height = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bot63"]
+resource_local_to_scene = true
+radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4ne6x"]
+resource_local_to_scene = true
+radius = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjw0f"]
+bg_color = Color(0.38, 0.38, 0.38, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c86kq"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Animation" id="Animation_lpvrq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Clock/Hand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5707964]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Clock/TextureProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Clock:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Clock/TextureProgressBar:tint_progress")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.5647059, 1, 0.6862745)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Clock:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bot63"]
+resource_name = "clockEndBlue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Clock:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Clock/TextureProgressBar:tint_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0.5647059, 1, 0.6862745), Color(1, 1, 1, 0.6862745), Color(0, 0.5647059, 1, 0.6862745)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Clock/TextureProgressBar:value")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Clock/Hand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5707964]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/Clock:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_3rt3l"]
+resource_name = "clockEndRed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Clock:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Clock/TextureProgressBar:tint_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.6862745), Color(1, 1, 1, 0.6862745), Color(1, 0, 0, 0.6862745)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Clock/TextureProgressBar:value")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/Clock/Hand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5707964]
+}
+
+[sub_resource type="Animation" id="Animation_4ne6x"]
+resource_name = "clockStart"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Clock/Hand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.5707964, -1.5707964, 4.71238898038469]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/Clock:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/Clock/TextureProgressBar:value")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bot63"]
+_data = {
+&"RESET": SubResource("Animation_lpvrq"),
+&"clockEndBlue": SubResource("Animation_bot63"),
+&"clockEndRed": SubResource("Animation_3rt3l"),
+&"clockStart": SubResource("Animation_4ne6x")
+}
+
+[node name="Unit" type="Node3D" unique_id=1919569524 node_paths=PackedStringArray("rigidBody", "hitbox", "attackArea", "visionArea", "visionRaycast", "ui", "healthBar", "clockBar", "animator", "teamSprite")]
+script = ExtResource("1_yjw0f")
+rigidBody = NodePath("RigidBody3D")
+hitbox = NodePath("RigidBody3D/Hitbox")
+attackArea = NodePath("RigidBody3D/AttackArea")
+visionArea = NodePath("RigidBody3D/VisionArea")
+visionRaycast = NodePath("RigidBody3D/VisionRaycast")
+ui = NodePath("UI")
+healthBar = NodePath("UI/HealthBar")
+clockBar = NodePath("UI/Clock/TextureProgressBar")
+animator = NodePath("UI/AnimationPlayer")
+teamSprite = NodePath("UI/team")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=473396435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 0
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="BodyMesh" type="MeshInstance3D" parent="RigidBody3D" unique_id=1912621865]
+mesh = SubResource("CapsuleMesh_3rt3l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=366357309]
+shape = SubResource("CapsuleShape3D_tb11o")
+
+[node name="Hitbox" type="Area3D" parent="RigidBody3D" unique_id=496586322]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Hitbox" unique_id=1435444040]
+shape = SubResource("CapsuleShape3D_3rt3l")
+
+[node name="AttackArea" type="Area3D" parent="RigidBody3D" unique_id=1501608335]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/AttackArea" unique_id=2011669466]
+shape = SubResource("SphereShape3D_bot63")
+
+[node name="VisionArea" type="Area3D" parent="RigidBody3D" unique_id=2081374519]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/VisionArea" unique_id=956538369]
+shape = SubResource("SphereShape3D_4ne6x")
+
+[node name="VisionRaycast" type="RayCast3D" parent="RigidBody3D" unique_id=1097565217]
+target_position = Vector3(0, 0, -5)
+collision_mask = 2
+
+[node name="UI" type="Node2D" parent="." unique_id=2091300922]
+
+[node name="HealthBar" type="ProgressBar" parent="UI" unique_id=1605707181]
+offset_left = -20.0
+offset_top = -11.0
+offset_right = 20.0
+offset_bottom = -6.0
+theme_override_styles/background = SubResource("StyleBoxFlat_yjw0f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_c86kq")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="team" type="Sprite2D" parent="UI" unique_id=1375283028]
+modulate = Color(0, 0.5647059, 1, 1)
+position = Vector2(0, -8)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_3rt3l")
+
+[node name="Clock" type="Node2D" parent="UI" unique_id=548397123]
+position = Vector2(0, -8)
+
+[node name="Clock" type="Sprite2D" parent="UI/Clock" unique_id=602041084]
+position = Vector2(0, -1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_c86kq")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Clock" unique_id=224503808]
+offset_left = -6.9999995
+offset_top = -6.999999
+offset_right = 141.0
+offset_bottom = 141.0
+scale = Vector2(0.094, 0.094)
+fill_mode = 4
+texture_progress = ExtResource("3_lpvrq")
+tint_progress = Color(0, 0.5647059, 1, 0.6862745)
+
+[node name="Hand" type="Sprite2D" parent="UI/Clock" unique_id=1431788705]
+rotation = -1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_lpvrq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=1427770016]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_bot63")
+
+[node name="Label" type="Label" parent="UI" unique_id=1646276256]
+visible = false
+offset_left = -100.0
+offset_top = -60.0
+offset_right = 100.0
+offset_bottom = -10.0
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

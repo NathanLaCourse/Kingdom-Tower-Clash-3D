@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://o4t87oxcg4rq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ukr8"]
+albedo_color = Color(1, 0, 0, 1)
+metallic_specular = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_o06y3"]
+material = SubResource("StandardMaterial3D_5ukr8")
+radial_segments = 5
+rings = 2
+
+[node name="Gem" type="MeshInstance3D" unique_id=42510741]
+mesh = SubResource("SphereMesh_o06y3")

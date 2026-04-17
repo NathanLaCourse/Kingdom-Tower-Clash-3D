@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dumcrejmee3or"]
+
+[ext_resource type="Script" uid="uid://d0tsopeqh5tsp" path="res://Scripts/death_particles.gd" id="1_nkpam"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpvrq"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3rt3l"]
+material = SubResource("StandardMaterial3D_lpvrq")
+radius = 0.1
+height = 0.2
+radial_segments = 6
+rings = 3
+
+[node name="DeathParticles" type="CPUParticles3D" unique_id=1277472980]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("SphereMesh_3rt3l")
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+script = ExtResource("1_nkpam")

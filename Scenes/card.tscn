@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://8o3d6gneqvjh"]
+
+[ext_resource type="Texture2D" uid="uid://ddeesec2om5r1" path="res://Assets/Card.svg" id="1_wf8id"]
+[ext_resource type="Texture2D" uid="uid://bwfqd0oxylwlf" path="res://Assets/Rounded Square.svg" id="2_brehn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8j60k"]
+size = Vector2(350, 400)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fo5ed"]
+font_size = 128
+
+[node name="Card" type="Sprite2D" unique_id=1122508158]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_wf8id")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=148359956]
+scale = Vector2(0.49999997, 0.49999997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1798300210]
+shape = SubResource("RectangleShape2D_8j60k")
+
+[node name="SoupCost" type="Sprite2D" parent="." unique_id=1583310202]
+self_modulate = Color(0.89, 0.429425, 0.2759, 1)
+position = Vector2(-49.999996, -99.99999)
+scale = Vector2(0.39999995, 0.39999995)
+texture = ExtResource("2_brehn")
+
+[node name="SoupCostLabel" type="Label" parent="SoupCost" unique_id=292967170]
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+text = "10"
+label_settings = SubResource("LabelSettings_fo5ed")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GoopCost" type="Sprite2D" parent="." unique_id=919538857]
+self_modulate = Color(0.32941177, 0.54901963, 0.16862746, 1)
+position = Vector2(49.999996, -99.99999)
+scale = Vector2(0.39999995, 0.39999995)
+texture = ExtResource("2_brehn")
+
+[node name="GoopCostLabel" type="Label" parent="GoopCost" unique_id=914119975]
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+text = "10"
+label_settings = SubResource("LabelSettings_fo5ed")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

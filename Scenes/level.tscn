@@ -1,0 +1,389 @@
+[gd_scene format=3 uid="uid://cq1828lny555h"]
+
+[ext_resource type="PackedScene" uid="uid://dumcrejmee3or" path="res://Scenes/death_particles.tscn" id="1_tumq0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_51e2h"]
+sky_top_color = Color(3.272891e-06, 0.4906795, 0.65616846, 1)
+sky_horizon_color = Color(0.6627451, 0.67058825, 0.6862745, 1)
+ground_bottom_color = Color(0.31578934, 0.46139604, 0.8259411, 1)
+ground_horizon_color = Color(0.6627451, 0.67058825, 0.6862745, 1)
+
+[sub_resource type="Sky" id="Sky_go701"]
+sky_material = SubResource("ProceduralSkyMaterial_51e2h")
+
+[sub_resource type="Environment" id="Environment_tumq0"]
+background_mode = 2
+sky = SubResource("Sky_go701")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvt00"]
+albedo_color = Color(0.1219397, 0.1219397, 0.12193968, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oqgf2"]
+material = SubResource("StandardMaterial3D_bvt00")
+size = Vector2(2, 24)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bvt00"]
+size = Vector2(2.5, 2.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qxfql"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_51e2h"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_81xng"]
+size = Vector2(2, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0f350"]
+size = Vector2(2, 24)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqkje"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_crh0w"]
+material = SubResource("StandardMaterial3D_wqkje")
+size = Vector2(3, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c7le1"]
+material = SubResource("StandardMaterial3D_wqkje")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2klc5"]
+material = SubResource("StandardMaterial3D_wqkje")
+size = Vector2(2, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_754fn"]
+size = Vector2(4, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nngtn"]
+size = Vector2(6, 24)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vofx3"]
+size = Vector2(6, 28)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tumq0"]
+albedo_color = Color(0.33866435, 1, 0.22242323, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k5f4k"]
+material = SubResource("StandardMaterial3D_tumq0")
+size = Vector2(20, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5f4k"]
+albedo_color = Color(0.3372549, 1, 0.22352941, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ha31o"]
+material = SubResource("StandardMaterial3D_k5f4k")
+size = Vector2(24, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51e2h"]
+albedo_color = Color(0.19846335, 0.19846335, 0.19846332, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tumq0"]
+material = SubResource("StandardMaterial3D_51e2h")
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6phgx"]
+size = Vector3(4, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_51e2h"]
+size = Vector3(8, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81xng"]
+albedo_color = Color(0, 0.36862746, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6phgx"]
+material = SubResource("StandardMaterial3D_81xng")
+size = Vector2(24, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_51e2h"]
+material = SubResource("StandardMaterial3D_81xng")
+size = Vector2(4, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6phgx"]
+albedo_color = Color(0.6313726, 0.40392157, 0.14509805, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pa6b8"]
+material = SubResource("StandardMaterial3D_6phgx")
+size = Vector2(24, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f350"]
+albedo_color = Color(0.42710784, 0.30302304, 0.17008248, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8c0lf"]
+material = SubResource("StandardMaterial3D_0f350")
+size = Vector2(2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8c0lf"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_754fn"]
+material = SubResource("StandardMaterial3D_8c0lf")
+radius = 0.2
+height = 0.4
+radial_segments = 6
+rings = 3
+
+[sub_resource type="GDScript" id="GDScript_bvt00"]
+script/source = "extends CPUParticles3D
+
+func _ready() -> void:
+	emitting = true
+
+func _process(delta: float) -> void:
+	if not emitting:
+		queue_free()
+"
+
+[node name="Level" type="Node3D" unique_id=236818093]
+
+[node name="Basic" type="Node" parent="." unique_id=493372604]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Basic" unique_id=369741425]
+environment = SubResource("Environment_tumq0")
+
+[node name="Sun" type="DirectionalLight3D" parent="Basic" unique_id=659014164]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ceilings" type="Node3D" parent="." unique_id=2094159877]
+
+[node name="CeilingsMesh" type="MeshInstance3D" parent="Ceilings" unique_id=1404920639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 4, 0)
+mesh = SubResource("PlaneMesh_oqgf2")
+
+[node name="CeilingsMesh2" type="MeshInstance3D" parent="Ceilings" unique_id=83580591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4, 0)
+mesh = SubResource("PlaneMesh_oqgf2")
+
+[node name="CeilingsMesh3" type="MeshInstance3D" parent="Ceilings" unique_id=1180845377]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.808253e-07, 4, 13)
+mesh = SubResource("PlaneMesh_oqgf2")
+
+[node name="CeilingsMesh4" type="MeshInstance3D" parent="Ceilings" unique_id=450409234]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.808253e-07, 4, -13)
+mesh = SubResource("PlaneMesh_oqgf2")
+
+[node name="Path" type="Node3D" parent="." unique_id=1761334954]
+
+[node name="KingBlue" type="MeshInstance3D" parent="Path" unique_id=1543706875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 9)
+mesh = SubResource("PlaneMesh_bvt00")
+
+[node name="LeftBlue" type="MeshInstance3D" parent="Path" unique_id=878094243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.1, 8)
+mesh = SubResource("PlaneMesh_qxfql")
+
+[node name="RightBlue" type="MeshInstance3D" parent="Path" unique_id=1899032589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.1, 8)
+mesh = SubResource("PlaneMesh_qxfql")
+
+[node name="KingRed" type="MeshInstance3D" parent="Path" unique_id=361978411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -9)
+mesh = SubResource("PlaneMesh_bvt00")
+
+[node name="LeftRed" type="MeshInstance3D" parent="Path" unique_id=2028570437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.1, -8)
+mesh = SubResource("PlaneMesh_qxfql")
+
+[node name="RightRed" type="MeshInstance3D" parent="Path" unique_id=1138007747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.1, -8)
+mesh = SubResource("PlaneMesh_qxfql")
+
+[node name="Walls" type="StaticBody3D" parent="." unique_id=933922523]
+collision_layer = 2
+collision_mask = 0
+
+[node name="LeftWallCollisionShape" type="CollisionShape3D" parent="Walls" unique_id=232706093]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_51e2h")
+
+[node name="LeftWallMeshes" type="Node3D" parent="Walls" unique_id=25095955]
+
+[node name="WallMesh" type="MeshInstance3D" parent="Walls/LeftWallMeshes" unique_id=312922075]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 1, 7)
+mesh = SubResource("PlaneMesh_81xng")
+
+[node name="WallMesh2" type="MeshInstance3D" parent="Walls/LeftWallMeshes" unique_id=2039996462]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 1, -7)
+mesh = SubResource("PlaneMesh_81xng")
+
+[node name="WallMesh3" type="MeshInstance3D" parent="Walls/LeftWallMeshes" unique_id=1803570209]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -10, 3, 0)
+mesh = SubResource("PlaneMesh_0f350")
+
+[node name="WallMesh4" type="MeshInstance3D" parent="Walls/LeftWallMeshes" unique_id=1235122029]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -12, 0.5, 0)
+mesh = SubResource("PlaneMesh_crh0w")
+
+[node name="WallMesh5" type="MeshInstance3D" parent="Walls/LeftWallMeshes" unique_id=1449903240]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, -11, 1, 2)
+mesh = SubResource("PlaneMesh_c7le1")
+
+[node name="WallMesh6" type="MeshInstance3D" parent="Walls/LeftWallMeshes" unique_id=771679745]
+transform = Transform3D(-5.7320566e-15, 1.3113416e-07, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, 1.3113416e-07, -11, 1, -2)
+mesh = SubResource("PlaneMesh_c7le1")
+
+[node name="WallMesh7" type="MeshInstance3D" parent="Walls/LeftWallMeshes" unique_id=215268493]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -11, 2, 0)
+mesh = SubResource("PlaneMesh_2klc5")
+
+[node name="RightWallCollisionShape" type="CollisionShape3D" parent="Walls" unique_id=1735171386]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 10, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_51e2h")
+
+[node name="RightWallMeshes" type="Node3D" parent="Walls" unique_id=1031302512]
+
+[node name="WallMesh" type="MeshInstance3D" parent="Walls/RightWallMeshes" unique_id=651212424]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 9.999999, 1, -7)
+mesh = SubResource("PlaneMesh_81xng")
+
+[node name="WallMesh2" type="MeshInstance3D" parent="Walls/RightWallMeshes" unique_id=166457137]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 10.000001, 1, 7)
+mesh = SubResource("PlaneMesh_81xng")
+
+[node name="WallMesh3" type="MeshInstance3D" parent="Walls/RightWallMeshes" unique_id=1941361417]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 10, 3, 0)
+mesh = SubResource("PlaneMesh_0f350")
+
+[node name="WallMesh4" type="MeshInstance3D" parent="Walls/RightWallMeshes" unique_id=52127473]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 12, 0.5, 6.556708e-08)
+mesh = SubResource("PlaneMesh_crh0w")
+
+[node name="WallMesh5" type="MeshInstance3D" parent="Walls/RightWallMeshes" unique_id=1553015490]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, 11, 1, -2)
+mesh = SubResource("PlaneMesh_c7le1")
+
+[node name="WallMesh6" type="MeshInstance3D" parent="Walls/RightWallMeshes" unique_id=2069751372]
+transform = Transform3D(1.9106857e-15, -4.371138e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371138e-08, 11, 1, 2)
+mesh = SubResource("PlaneMesh_c7le1")
+
+[node name="WallMesh7" type="MeshInstance3D" parent="Walls/RightWallMeshes" unique_id=1506693932]
+transform = Transform3D(1, 8.742278e-08, 8.742278e-08, 8.742278e-08, -1, 0, 8.742278e-08, 7.642742e-15, -1, 11, 2, -2.1855694e-08)
+mesh = SubResource("PlaneMesh_2klc5")
+
+[node name="RedWallCollisionShape" type="CollisionShape3D" parent="Walls" unique_id=1856944236]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, 0, 0, -12)
+shape = SubResource("WorldBoundaryShape3D_51e2h")
+
+[node name="RedWallMesh" type="MeshInstance3D" parent="Walls" unique_id=1310692477]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, 0, 2, -12)
+mesh = SubResource("PlaneMesh_754fn")
+
+[node name="BlueWallCollisionShape" type="CollisionShape3D" parent="Walls" unique_id=1840133114]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 0, 12)
+shape = SubResource("WorldBoundaryShape3D_51e2h")
+
+[node name="BlueWallMesh" type="MeshInstance3D" parent="Walls" unique_id=1328030857]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 2, 12)
+mesh = SubResource("PlaneMesh_754fn")
+
+[node name="RedOuterwallMesh" type="MeshInstance3D" parent="Walls" unique_id=1832492509]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, 0, 1, 14)
+mesh = SubResource("PlaneMesh_nngtn")
+
+[node name="BlueOuterwallMesh" type="MeshInstance3D" parent="Walls" unique_id=189676153]
+transform = Transform3D(-5.7320566e-15, 1.3113416e-07, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, 1.3113416e-07, 0, 1, -14)
+mesh = SubResource("PlaneMesh_nngtn")
+
+[node name="RightOuterwallMesh" type="MeshInstance3D" parent="Walls" unique_id=996805979]
+transform = Transform3D(-4.371139e-08, 1, -1.7484555e-07, -1, -4.371139e-08, 0, -7.642742e-15, 1.7484555e-07, 1, 12, 1, 0)
+mesh = SubResource("PlaneMesh_vofx3")
+
+[node name="LeftOuterwallMesh" type="MeshInstance3D" parent="Walls" unique_id=1517284541]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, -12, 1, 0)
+mesh = SubResource("PlaneMesh_vofx3")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=947232568]
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Floor" unique_id=99829052]
+shape = SubResource("WorldBoundaryShape3D_51e2h")
+
+[node name="RedFloorMesh" type="MeshInstance3D" parent="Floor" unique_id=827736155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+mesh = SubResource("PlaneMesh_k5f4k")
+
+[node name="RedFloorMeshStrip" type="MeshInstance3D" parent="Floor" unique_id=614557989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+mesh = SubResource("PlaneMesh_ha31o")
+
+[node name="BlueFloorMesh" type="MeshInstance3D" parent="Floor" unique_id=1049325896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+mesh = SubResource("PlaneMesh_k5f4k")
+
+[node name="BlueFloorMeshStrip" type="MeshInstance3D" parent="Floor" unique_id=858956128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+mesh = SubResource("PlaneMesh_ha31o")
+
+[node name="BottomMesh" type="MeshInstance3D" parent="Floor" unique_id=66486093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+visible = false
+mesh = SubResource("PlaneMesh_tumq0")
+
+[node name="River" type="StaticBody3D" parent="." unique_id=1191417804]
+collision_layer = 2
+collision_mask = 0
+
+[node name="LeftCollisionShape" type="CollisionShape3D" parent="River" unique_id=1597029606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+shape = SubResource("BoxShape3D_6phgx")
+
+[node name="CenterCollisionShape" type="CollisionShape3D" parent="River" unique_id=1729337090]
+shape = SubResource("BoxShape3D_51e2h")
+
+[node name="RightCollisionShape" type="CollisionShape3D" parent="River" unique_id=1312585439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+shape = SubResource("BoxShape3D_6phgx")
+
+[node name="RiverCenterMesh" type="MeshInstance3D" parent="River" unique_id=1243764079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("PlaneMesh_6phgx")
+
+[node name="WaterfallLeftMesh" type="MeshInstance3D" parent="River" unique_id=274355438]
+transform = Transform3D(0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0, 0, 1, -11, 1, 0)
+mesh = SubResource("PlaneMesh_51e2h")
+
+[node name="WaterfallRightMesh" type="MeshInstance3D" parent="River" unique_id=1990951666]
+transform = Transform3D(-0.25881907, -0.9659258, 8.742278e-08, -0.9659258, 0.25881907, 0, -2.2626683e-08, -8.444392e-08, -1, 11, 1, 0)
+mesh = SubResource("PlaneMesh_51e2h")
+
+[node name="RiverDirtRed" type="MeshInstance3D" parent="River" unique_id=751814670]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.5, -1)
+mesh = SubResource("PlaneMesh_pa6b8")
+
+[node name="RiverBlueRed" type="MeshInstance3D" parent="River" unique_id=1839608013]
+transform = Transform3D(-1, 8.742278e-08, -3.821371e-15, 0, -4.371139e-08, -1, -8.742278e-08, -1, 4.371139e-08, 0, -0.5, 1)
+mesh = SubResource("PlaneMesh_pa6b8")
+
+[node name="BridgeLeftMesh" type="MeshInstance3D" parent="River" unique_id=867683329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.1, 0)
+mesh = SubResource("PlaneMesh_8c0lf")
+
+[node name="BridgeRightMesh" type="MeshInstance3D" parent="River" unique_id=707104232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.1, 0)
+mesh = SubResource("PlaneMesh_8c0lf")
+
+[node name="Particles" type="Node3D" parent="." unique_id=773664648]
+
+[node name="WaterfallFoamLeft" parent="Particles" unique_id=1277472980 instance=ExtResource("1_tumq0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -1, 0)
+emitting = true
+amount = 64
+one_shot = false
+explosiveness = 0.0
+mesh = SubResource("SphereMesh_754fn")
+spread = 45.0
+gravity = Vector3(0, -4, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+script = SubResource("GDScript_bvt00")
+
+[node name="WaterfallFoamRight" parent="Particles" unique_id=340338600 instance=ExtResource("1_tumq0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1, 0)
+emitting = true
+amount = 64
+one_shot = false
+explosiveness = 0.0
+mesh = SubResource("SphereMesh_754fn")
+spread = 45.0
+gravity = Vector3(0, -4, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+script = SubResource("GDScript_bvt00")

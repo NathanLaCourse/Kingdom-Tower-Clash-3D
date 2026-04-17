@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://wkkbu3fc4fjf"]
+
+[ext_resource type="PackedScene" uid="uid://rx4rskigek2n" path="res://Scenes/world.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://bouka4ifswrq8" path="res://Scripts/game.gd" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://cq1828lny555h" path="res://Scenes/level.tscn" id="3_wrm1d"]
+
+[node name="Game" type="Node3D" unique_id=351360893 node_paths=PackedStringArray("background", "ui", "main_menu", "mainVBox", "address_entry", "lobbyVBox", "addressSwitch", "addressShow")]
+script = ExtResource("1_qxrlw")
+worldScene = ExtResource("1_ebmjs")
+background = NodePath("Background")
+ui = NodePath("Ui")
+main_menu = NodePath("Ui/MainMenu")
+mainVBox = NodePath("Ui/MainMenu/MarginContainer/MainMenuVBox")
+address_entry = NodePath("Ui/MainMenu/MarginContainer/MainMenuVBox/AddressEntry")
+lobbyVBox = NodePath("Ui/MainMenu/MarginContainer/LobbyVBox")
+addressSwitch = NodePath("Ui/MainMenu/MarginContainer/LobbyVBox/ShowAddressSwitch")
+addressShow = NodePath("Ui/MainMenu/MarginContainer/LobbyVBox/AddressShow")
+
+[node name="Background" type="Node3D" parent="." unique_id=693725686]
+
+[node name="Level" parent="Background" unique_id=236818093 instance=ExtResource("3_wrm1d")]
+
+[node name="CameraPivot" type="Node3D" parent="Background" unique_id=1379686795]
+
+[node name="Camera3D" type="Camera3D" parent="Background/CameraPivot" unique_id=1851667935]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 13, 25)
+
+[node name="Ui" type="Node2D" parent="." unique_id=844982428]
+
+[node name="MainMenu" type="PanelContainer" parent="Ui" unique_id=1588215654]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Ui/MainMenu" unique_id=1713788462]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="MainMenuVBox" type="VBoxContainer" parent="Ui/MainMenu/MarginContainer" unique_id=1799681822]
+layout_mode = 2
+
+[node name="MainMenuLabel" type="Label" parent="Ui/MainMenu/MarginContainer/MainMenuVBox" unique_id=1189218065]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SingleplayerLabel" type="Label" parent="Ui/MainMenu/MarginContainer/MainMenuVBox" unique_id=213910559]
+layout_mode = 2
+text = "Singleplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SingleplayerButton" type="Button" parent="Ui/MainMenu/MarginContainer/MainMenuVBox" unique_id=517035734]
+layout_mode = 2
+text = "Start"
+
+[node name="MultiplayerLabel" type="Label" parent="Ui/MainMenu/MarginContainer/MainMenuVBox" unique_id=967897425]
+layout_mode = 2
+text = "Online PvP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HostButton" type="Button" parent="Ui/MainMenu/MarginContainer/MainMenuVBox" unique_id=805283202]
+layout_mode = 2
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="Ui/MainMenu/MarginContainer/MainMenuVBox" unique_id=1575701147]
+layout_mode = 2
+text = "Join (With Address)"
+
+[node name="AddressEntry" type="LineEdit" parent="Ui/MainMenu/MarginContainer/MainMenuVBox" unique_id=1292808758]
+layout_mode = 2
+placeholder_text = "Enter Host's Address"
+alignment = 1
+
+[node name="LobbyVBox" type="VBoxContainer" parent="Ui/MainMenu/MarginContainer" unique_id=2099695655]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MainMenuLabel" type="Label" parent="Ui/MainMenu/MarginContainer/LobbyVBox" unique_id=565229257]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Lobby"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ServerPlayerSwitch" type="CheckButton" parent="Ui/MainMenu/MarginContainer/LobbyVBox" unique_id=336817895]
+visible = false
+layout_mode = 2
+text = "Server As Player
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/MainMenu/MarginContainer/LobbyVBox" unique_id=1781297374]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="ShowAddressSwitch" type="CheckButton" parent="Ui/MainMenu/MarginContainer/LobbyVBox" unique_id=463744785]
+layout_mode = 2
+text = "Show Address
+"
+
+[node name="AddressShow" type="LineEdit" parent="Ui/MainMenu/MarginContainer/LobbyVBox" unique_id=2143369522]
+layout_mode = 2
+placeholder_text = "(Address)"
+alignment = 1
+
+[node name="MultiplayerButton" type="Button" parent="Ui/MainMenu/MarginContainer/LobbyVBox" unique_id=1529475293]
+layout_mode = 2
+text = "Start"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=59538537]
+_spawnable_scenes = PackedStringArray("uid://ck0m3bf81txjj", "uid://b5s633kunqrb3")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="Ui/MainMenu/MarginContainer/MainMenuVBox/SingleplayerButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Ui/MainMenu/MarginContainer/MainMenuVBox/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="Ui/MainMenu/MarginContainer/MainMenuVBox/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="toggled" from="Ui/MainMenu/MarginContainer/LobbyVBox/ShowAddressSwitch" to="." method="_on_show_address_switch_toggled"]
+[connection signal="pressed" from="Ui/MainMenu/MarginContainer/LobbyVBox/MultiplayerButton" to="." method="_on_multiplayer_button_pressed"]
